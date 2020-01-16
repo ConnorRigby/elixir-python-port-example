@@ -1,21 +1,23 @@
 # Pyport
 
-**TODO: Add description**
+Example project on how to use [`erlang_py`](https://github.com/okeuday/erlang_py)
+from Elixir.
 
-## Installation
+## Usage
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `pyport` to your list of dependencies in `mix.exs`:
+Install python dependencies
 
-```elixir
-def deps do
-  [
-    {:pyport, "~> 0.1.0"}
-  ]
-end
+```bash
+$ pip install -r requirements.txt
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/pyport](https://hexdocs.pm/pyport).
-
+```elixir
+iex(1)> {:ok, pid} = Pyport.start_link()
+{:ok, #PID<0.109.0>}
+iex(2)> :ok = Pyport.echo(:hello)
+:ok
+iex(3)> flush()
+:hello
+:ok
+iex(4)>
+```
